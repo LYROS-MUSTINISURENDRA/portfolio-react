@@ -1,38 +1,233 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  color: white;
+  background: linear-gradient(45deg, #f06, skyblue, #f06);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  display: flex;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 35px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: rgb(28, 0, 128);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar a:hover::before,
+.navbar a.active::before {
+  background: linear-gradient(45deg,green,blue);
+  visibility: visible; 
+  transform: scaleX(1); 
+}
+
+.home {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.home-content h1 {
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.home-content h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.home-content p {
+  font-size: 16px;
+  text-align: center; 
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 48px;
+  border-radius: 40px;
+  background-color: black;
+  font-size: 19px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+  background: linear-gradient(45deg, #f06, skyblue, #f06);
+  background-position: 0 0;
+  z-index: -1;
+  border-radius: 40px;
+  background-size: 200%;
+  filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.btn:hover::before {
+  background-position: 100% 0;
+}
+
+.home-sci {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.home-sci a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, black, green);
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.home-sci a:hover {
+  transform: scale(1.1);
+}
+
+.home-img {
+  width: 410px;
+  height: 410px;
+  position: relative;
+}
+
+.image img {
+  position: absolute;
+  top: 20%;
+  left: 78%;
+  transform: translate(-50%);
+  max-width: 350px;
+  object-fit: cover;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.contact__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.contact__form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.contact__input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.contact__button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
   color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact__button:hover {
+  background-color: gray;
 }
